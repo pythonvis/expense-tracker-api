@@ -3,7 +3,7 @@ from unittest import TestCase
 
 # Create your tests here.
 def sumofint(a, b):
-    return a + b
+    return 0
 
 
 class Testsum(TestCase):
