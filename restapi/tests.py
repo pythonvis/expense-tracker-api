@@ -1,11 +1,16 @@
 from django.test import TestCase
-from unittest import TestCase
+from restapi import models
+from datetime import datetime
 
 # Create your tests here.
-def sumofint(a, b):
-    return a + b
-
-
-class Testsum(TestCase):
-    def test_sum(self):
-        self.assertEqual(sumofint(1, 2), 3)
+class Pretest(TestCase):
+    def test_expense(self):
+        expense = models.Expense.objects.create(
+            amount=499,
+            shopname="Amazon",
+            category="Airpod",
+            description="Apple airpod purchased from Amazon",
+            posted=datetime.now(),
+        )
+        fortest = models.Expense.objects.get(pk=expense.id)
+        self.assertEqual(499, fortest.amount)
